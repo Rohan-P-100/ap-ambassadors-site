@@ -11,6 +11,128 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Card Styles */
+			.content-card {
+				background: white;
+				border-radius: 8px;
+				padding: 2.5rem;
+				margin-bottom: 2rem;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+			}
+
+			.card-header {
+				background: #1a2847;
+				color: white;
+				padding: 1.5rem 2rem;
+				border-radius: 8px 8px 0 0;
+				margin: -2.5rem -2.5rem 2rem -2.5rem;
+			}
+
+			.card-header h2 {
+				margin: 0;
+				color: white;
+				font-size: 1.5rem;
+			}
+
+			/* Mission Statement Special Card */
+			.mission-card {
+				background: #1a2847;
+				color: white;
+				text-align: center;
+				padding: 3rem 2.5rem;
+				margin: 3rem 0;
+				border-radius: 8px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+			}
+
+			.mission-card h2 {
+				color: #7fa8d6;
+				margin-bottom: 1.5rem;
+				font-size: 1.75rem;
+			}
+
+			.mission-card p {
+				font-size: 1.125rem;
+				line-height: 1.8;
+				margin: 0;
+				color: white;
+			}
+
+			/* Photo Gallery Grid */
+			.photo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5rem;
+				margin: 2rem 0;
+			}
+
+			.photo-item {
+				position: relative;
+				aspect-ratio: 4/3;
+				overflow: hidden;
+				border-radius: 8px;
+				cursor: pointer;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+
+			.photo-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+			}
+
+			.photo-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			/* Lightbox */
+			.lightbox {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.9);
+				z-index: 10000;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.lightbox.active {
+				display: flex;
+			}
+
+			.lightbox-content {
+				max-width: 90%;
+				max-height: 90%;
+				position: relative;
+			}
+
+			.lightbox-content img {
+				max-width: 100%;
+				max-height: 90vh;
+				border-radius: 4px;
+			}
+
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				color: white;
+				font-size: 40px;
+				font-weight: bold;
+				cursor: pointer;
+				z-index: 10001;
+			}
+
+			.lightbox-close:hover {
+				color: #7fa8d6;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -36,27 +158,64 @@
 					</header>
 
 				<!-- Menu -->
-
-        <nav id="menu">
-          <h2>Menu</h2>
-          <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="application.html">Application</a></li>
-              <li><a href="impact.html">Our Impact</a></li>
-              <li><a href="inaction.html">In Action</a></li>
-              <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="application.html">Application</a></li>
+						<li><a href="impact.html">Our Impact</a></li>
+						<li><a href="inaction.html">In Action</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
 							<h1>About Us</h1>
-							<span class="image main"><img src="images/pic13.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							
+							<!-- Mission Statement Card -->
+							<div class="mission-card">
+								<h2>Mission Statement</h2>
+								<p>We, as AP Ambassadors, aim to cultivate a culture of excellence through student leaders; giving them the space to drive participation and improve performance not only in the classroom, but also in the community.</p>
+							</div>
+
+							<!-- About Us Card -->
+							<div class="content-card">
+								<div class="card-header">
+									<h2>About Us!</h2>
+								</div>
+
+								<h3 style="color: #1a2847; font-size: 1.3rem; margin-bottom: 1rem;">Who are we?</h3>
+								<p>The Denmark High School AP Ambassador program is comprised of ~20 current sophomores, juniors, and seniors, with the exception of one freshman nominated by their AP Human Geography teacher halfway through their freshman year.</p>
+
+								<h3 style="color: #1a2847; font-size: 1.3rem; margin-bottom: 1rem; margin-top: 2rem;">What do we do?</h3>
+								<p>We aim to cultivate a culture of excellence both inside and outside of the classroom. We strive to increase AP participation and performance by encouraging AP studies and bringing a diverse group of students to the table to make sure all perspectives are heard. We give back to Denmark and the surrounding community through planning, organizing, and hosting events such as freshmen orientation, career pathway night, AP Night, Spring Fling, and much more.</p>
+
+								<h3 style="color: #1a2847; font-size: 1.3rem; margin-bottom: 1rem; margin-top: 2rem;">Why do we do it?</h3>
+								<p>We believe as AP Ambassadors we should be prepared to make an impact on the people and community we serve. We are driven by a mindset of philanthropy; constantly looking for ways to improve situations in every aspect of life and give back to our school and the community.</p>
+							</div>
+
+							<!-- 2024-2025 Pictures Card -->
+							<div class="content-card">
+								<div class="card-header">
+									<h2>2024-2025 Pictures!</h2>
+								</div>
+
+								<div class="photo-grid">
+									<div class="photo-item" onclick="openLightbox('images/about-2425-pic1.jpg')">
+										<img src="images/about-2425-pic1.jpg" alt="AP Ambassadors 2024-2025">
+									</div>
+									<div class="photo-item" onclick="openLightbox('images/about-2425-pic2.jpg')">
+										<img src="images/about-2425-pic2.jpg" alt="AP Ambassadors 2024-2025">
+									</div>
+									<div class="photo-item" onclick="openLightbox('images/about-2425-pic3.jpg')">
+										<img src="images/about-2425-pic3.jpg" alt="AP Ambassadors 2024-2025">
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</div>
 
@@ -103,12 +262,38 @@
 
 			</div>
 
+		<!-- Lightbox -->
+		<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+			<span class="lightbox-close">&times;</span>
+			<div class="lightbox-content" onclick="event.stopPropagation()">
+				<img id="lightbox-img" src="" alt="">
+			</div>
+		</div>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				function openLightbox(imgSrc) {
+					document.getElementById('lightbox').classList.add('active');
+					document.getElementById('lightbox-img').src = imgSrc;
+				}
+
+				function closeLightbox() {
+					document.getElementById('lightbox').classList.remove('active');
+				}
+
+				// Close lightbox with Escape key
+				document.addEventListener('keydown', function(e) {
+					if (e.key === 'Escape') {
+						closeLightbox();
+					}
+				});
+			</script>
 
 	</body>
 </html>
