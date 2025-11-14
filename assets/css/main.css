@@ -3167,7 +3167,7 @@ input, select, textarea {
 
 	#footer {
 		padding: 5em 0 6em 0 ;
-		background-color: #7fa8d6;
+		background-color: #7fa8d6 !important;
 	}
 
 		#footer > .inner {
@@ -3328,5 +3328,6 @@ input, select, textarea {
 			}
 
 		}
+
 
 
